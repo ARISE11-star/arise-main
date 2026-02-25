@@ -114,19 +114,8 @@ const MovieDetail = () => {
                 allowFullScreen
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                 referrerPolicy="no-referrer"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
               />
-              {!playerActivated && (
-                <div
-                  className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/60 cursor-pointer"
-                  onClick={() => setPlayerActivated(true)}
-                >
-                  <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center mb-4 shadow-2xl hover:scale-110 transition-transform">
-                    <Play className="h-9 w-9 fill-white text-white ml-1" />
-                  </div>
-                  <p className="text-white text-sm font-semibold tracking-wide">Click to Play</p>
-                  <p className="text-white/50 text-xs mt-1">Activates the player</p>
-                </div>
-              )}
             </div>
           </motion.div>
         )}
