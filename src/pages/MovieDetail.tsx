@@ -81,23 +81,23 @@ const MovieDetail = () => {
                 </h3>
               </div>
               */}
-              <div className="flex items-center gap-2">
-                {/* Player Source Selector — hidden, VidFast only for now */}
-                {/* <div className="flex gap-1 overflow-x-auto hide-scrollbar">
+              <div className="flex items-center gap-2 flex-1">
+                {/* Player Source Selector */}
+                <div className="flex gap-1 overflow-x-auto hide-scrollbar flex-1">
                   {players.map((p, i) => (
                     <button
                       key={p.title}
                       onClick={() => setSelectedPlayer(i)}
                       className={`px-3 py-1 rounded-md text-xs font-medium whitespace-nowrap transition-colors ${i === selectedPlayer
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-secondary text-muted-foreground hover:text-foreground"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
                         }`}
                     >
                       {p.title}
-                      {p.recommended && " ⭐"}
+                      {p.ads ? " ⚠️" : " ✅"}
                     </button>
                   ))}
-                </div> */}
+                </div>
                 <button
                   onClick={() => { setPlayerOpen(false); setPlayerActivated(false); }}
                   className="p-2 rounded-full bg-secondary hover:bg-accent transition-colors ml-2"
