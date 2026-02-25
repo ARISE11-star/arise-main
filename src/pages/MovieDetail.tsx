@@ -84,7 +84,7 @@ const MovieDetail = () => {
               <div className="flex items-center gap-2 flex-1">
                 {/* Player Source Selector */}
                 <div className="flex gap-1 overflow-x-auto hide-scrollbar flex-1">
-                  {players.map((p, i) => (
+                  {players.filter(p => !p.ads).map((p, i) => (
                     <button
                       key={p.title}
                       onClick={() => setSelectedPlayer(i)}
