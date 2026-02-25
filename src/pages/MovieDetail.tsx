@@ -16,6 +16,7 @@ const MovieDetail = () => {
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [selectedEpisode, setSelectedEpisode] = useState(1);
   const [seasonDropdownOpen, setSeasonDropdownOpen] = useState(false);
+  const [playerActivated, setPlayerActivated] = useState(false);
 
   const { data: movie, isLoading } = useQuery({
     queryKey: ["detail", type, id],
@@ -56,6 +57,7 @@ const MovieDetail = () => {
   const handlePlayEpisode = (ep: Episode) => {
     setSelectedEpisode(ep.episode_number);
     setSelectedPlayer(0);
+    setPlayerActivated(false);
     setPlayerOpen(true);
   };
 
@@ -97,7 +99,7 @@ const MovieDetail = () => {
                   ))}
                 </div> */}
                 <button
-                  onClick={() => setPlayerOpen(false)}
+                  onClick={() => { setPlayerOpen(false); setPlayerActivated(false); }}
                   className="p-2 rounded-full bg-secondary hover:bg-accent transition-colors ml-2"
                 >
                   <X className="h-5 w-5" />
@@ -113,6 +115,18 @@ const MovieDetail = () => {
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                 referrerPolicy="no-referrer"
               />
+              {!playerActivated && (
+                <div
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/60 cursor-pointer"
+                  onClick={() => setPlayerActivated(true)}
+                >
+                  <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center mb-4 shadow-2xl hover:scale-110 transition-transform">
+                    <Play className="h-9 w-9 fill-white text-white ml-1" />
+                  </div>
+                  <p className="text-white text-sm font-semibold tracking-wide">Click to Play</p>
+                  <p className="text-white/50 text-xs mt-1">Activates the player</p>
+                </div>
+              )}
             </div>
           </motion.div>
         )}
@@ -194,6 +208,7 @@ const MovieDetail = () => {
             <button
               onClick={() => {
                 setSelectedPlayer(0);
+                setPlayerActivated(false);
                 setPlayerOpen(true);
               }}
               className="inline-flex items-center gap-2 gradient-red text-primary-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity mb-6"
