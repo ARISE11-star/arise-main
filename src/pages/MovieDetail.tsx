@@ -110,8 +110,9 @@ const MovieDetail = () => {
                 src={currentPlayer.source}
                 className="absolute inset-0 w-full h-full"
                 allowFullScreen
-                allow="autoplay; encrypted-media; picture-in-picture"
-                referrerPolicy="origin"
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                referrerPolicy="no-referrer"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation"
               />
             </div>
           </motion.div>
