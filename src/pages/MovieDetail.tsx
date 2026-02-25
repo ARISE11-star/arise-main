@@ -99,7 +99,7 @@ const MovieDetail = () => {
                   ))}
                 </div>
                 <button
-                  onClick={() => { setPlayerOpen(false); setPlayerActivated(false); }}
+                  onClick={() => setPlayerOpen(false)}
                   className="p-2 rounded-full bg-secondary hover:bg-accent transition-colors ml-2"
                 >
                   <X className="h-5 w-5" />
