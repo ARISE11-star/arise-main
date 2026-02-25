@@ -14,6 +14,12 @@ export const getMoviePlayers = (id: string | number): PlayerSource[] => [
     fast: true,
   },
   {
+    title: "VidKing",
+    source: `https://www.vidking.net/embed/movie/${id}?color=e50914&autoplay=false`,
+    recommended: true,
+    fast: true,
+  },
+  {
     title: "111Movies",
     source: `https://111movies.com/movie/${id}`,
     recommended: true,
@@ -25,12 +31,6 @@ export const getMoviePlayers = (id: string | number): PlayerSource[] => [
     recommended: true,
     fast: true,
     ads: true,
-  },
-  {
-    title: "VidKing",
-    source: `https://www.vidking.net/embed/movie/${id}?color=e50914&autoplay=false`,
-    recommended: true,
-    fast: true,
   },
   {
     title: "Embed",
